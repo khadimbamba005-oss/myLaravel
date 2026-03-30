@@ -19,6 +19,6 @@
                 <p>Quantit&#233: {{$livre->quantite}}</p>
             </div>
         </div>
-        <a href="{{route('livre.liste')}}" class="btn btn-success">Retour</a>
+        <a href="{{route('livre.liste')}}" class="btn btn-info">Retour</a>
     </div>
 @endsection

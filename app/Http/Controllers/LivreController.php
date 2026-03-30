@@ -48,4 +48,9 @@ class LivreController extends Controller
         $livre->update($req->all());
         return redirect()->route('livre.liste');
     }
+    public function delete(Livre $livre)
+    {
+        $livre->delete();
+        return redirect()->route('livre.liste');
+    }
 }

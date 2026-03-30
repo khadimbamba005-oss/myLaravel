@@ -28,7 +28,13 @@
             <td>{{$item->quantite}}</td>
             <td><a href="{{route('livre.show', $item->id)}}"class="btn btn-success btn-xs"><i class="fa fa-check"></i></a></td>
             <td><a href="{{route('livre.edit', $item->id)}}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a></td>
-            <td><a href="" class="btn-danger btn-xs" ><i class="fa fa-trash-o"></i></a></td>
+            <td>
+            <form action="{{route('livre.delete', $item->id)}} " method="POST" onsubmit="return confirm('Etes-vous sûr de vouloir suppimer ce livre ?')">
+                @csrf
+                @method('DELETE')
+                <button class="btn-danger btn-xs" type="submit"><i class="fa fa-trash-o"></i></button>
+            </form>
+            </td>
         </tr>
     @empty
         <p>Il n'y a aucun à afficher</p>

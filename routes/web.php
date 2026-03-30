@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\LivreController;
+use App\Http\Controllers\EtudiantController;
 use Illuminate\Support\Facades\Route;
 Route::get('/' , function()
 {
@@ -12,3 +13,5 @@ Route::post('livres/store', [LivreController::class , 'store'])->name('livre.sto
 Route::get('livres/show/{livre}' , [LivreController::class, 'show'])->name('livre.show');
 Route::get('livres/edit/{livre}' , [LivreController::class , 'edit'])->name('livre.edit');
 Route::put('livres/edit/{livre}' , [LivreController::class , 'update'])->name('livre.update');
+Route::delete('livres/delete/{livre}', [LivreController::class, 'delete'])->name('livre.delete');
+Route::get('/etudiants/index', [EtudiantController::class , 'index'])->name('etudiant.liste');
