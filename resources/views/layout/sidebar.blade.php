@@ -26,8 +26,8 @@
               <span>Etudiants</span>
             </a>
               <ul class="sub">
-              <li><a href="{{route('etudiant.liste')}}">Liste</a></li>
-              <li><a href="">Nouveau</a></li>
+              <li><a href="{{route('etudiant.index')}}">Liste</a></li>
+              <li><a href="{{route('etudiant.create')}}">Nouveau</a></li>
             </ul>
           </li>
       <li class="sub-menu">

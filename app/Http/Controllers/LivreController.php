@@ -16,6 +16,7 @@ class LivreController extends Controller
         return view('livres.create');
     }
     public function store(Request $request){
+        // dd($request);
         $validForm = $request->validate([
             'titre'=>'string|max:255|required',
             'auteur'=>'string|max:255|required',

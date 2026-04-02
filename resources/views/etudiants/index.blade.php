@@ -22,7 +22,7 @@
             <td >{{$item->prenom}}</td>
             <td>{{$item->numTel}}</td>
             <td>{{$item->email}}</td>
-            <td><a href=""class="btn btn-success btn-xs"><i class="fa fa-check"></i></a></td>
+            <td><a href="{{route('etudiant.show')}}"class="btn btn-success btn-xs"><i class="fa fa-check"></i></a></td>
             <td><a href="" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a></td>
             <td><a href="" class="btn-danger btn-xs"><i class="fa fa-trash-o"></i></a></td>
         </tr>
