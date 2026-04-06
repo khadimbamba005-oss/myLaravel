@@ -13,4 +13,9 @@ class Etudiant extends Model
         'numTel',
         'email'
     ];
+
+    public function emprunt()
+    {
+        return $this->hasMany(Emprunt::class , 'etudiant_id');
+    }
 }

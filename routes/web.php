@@ -1,6 +1,8 @@
 <?php
+
 use App\Http\Controllers\LivreController;
 use App\Http\Controllers\EtudiantController;
+use App\Http\Controllers\EmpruntController ;
 use Illuminate\Support\Facades\Route;
 Route::get('/' , function()
 {
@@ -14,12 +16,19 @@ Route::get('livres/show/{livre}' , [LivreController::class, 'show'])->name('livr
 Route::get('livres/edit/{livre}' , [LivreController::class , 'edit'])->name('livre.edit');
 Route::put('livres/edit/{livre}' , [LivreController::class , 'update'])->name('livre.update');
 Route::delete('livres/delete/{livre}', [LivreController::class, 'delete'])->name('livre.delete');
+
+// les routes pour etudiants
 Route::get('/etudiants', [EtudiantController::class , 'index'])->name('etudiant.index');
 Route::get('etudiants/create', [EtudiantController::class, 'create'])->name('etudiant.create');
 Route::post('/etudiants', [EtudiantController::class, 'store'])->name('etudiant.store');
 Route::get('etudiants/show/{etudiant}', [EtudiantController::class, 'show'])->name('etudiant.show');
-// Route::get('/etudiants/edit/{etudiant]', [EtudiantController::class, 'edit'])->name('etudiant.edit');
-// Route::get('/etudiants/edit/{etudiant}', [EtudiantController::class, 'update'])->name('etudiant.update');
-// Route::delete('etudiants/delete/{livre}', [EtudiantController::class, 'delete'])->name('etudiant.delete');
+Route::get('/etudiants/edit/{etudiant]', [EtudiantController::class, 'edit'])->name('etudiant.edit');
+Route::get('/etudiants/edit/{etudiant}', [EtudiantController::class, 'update'])->name('etudiant.update');
+Route::delete('etudiants/delete/{livre}', [EtudiantController::class, 'delete'])->name('etudiant.delete');
 
+// pour les emprunts
+
+Route::get('etudiants/',[EmpruntController::class , 'index'])->name('emprunt.index');
+Route::post('/emprunts', [EmpruntController::class, 'store'])->name('emprunt.store');
+Route::get('emprunts/create', [EmpruntController::class, 'create'])->name('emprunt.create');
 

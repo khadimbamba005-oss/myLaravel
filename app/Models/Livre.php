@@ -11,4 +11,9 @@ class Livre extends Model
         'quantite'
 
     ];
-};
+
+    public function emprunt()
+    {
+        return $this->hasMany(Emprunt::class , 'livre_id');
+    }
+}
