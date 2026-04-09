@@ -36,8 +36,8 @@
               <span>Emprunts</span>
               </a>
             <ul class="sub">
-              <li><a href="general.html">Liste</a></li>
-              <li><a href="buttons.html">Nouveaux</a></li>
+              <li><a href="{{route('emprunt.index')}}">Liste</a></li>
+              <li><a href="{{route('emprunt.create')}}">Nouveaux</a></li>
             </ul>
           </li>
         <!-- sidebar menu end-->

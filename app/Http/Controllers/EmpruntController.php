@@ -34,8 +34,8 @@ class EmpruntController extends Controller
     {
         $valide = $request->validate(
             [
-                'livre_id' => 'required|exists:livre,id',
-                'etudiant_id' => 'required|exists:etudiant,id',
+                'livre_id' => 'required|exists:livres,id',
+                'etudiant_id' => 'required|exists:etudiants,id',
                 'date_emprunt' => 'required|date',
                 'date_retour' => 'required|date',
                 'rendu' => 'required|boolean'
@@ -54,8 +54,8 @@ class EmpruntController extends Controller
                 ]);
             }
 
-        Emprunt::create($validate);
-        return redirect()->route('emprunts.index')->with('Succes', 'Emprunt enregistre avec succ&#233s !');
+        Emprunt::create($valide);
+        return redirect()->route('emprunt.index')->with('Succes', 'Emprunt enregistre avec succ&#233s !');
 
     }
 
@@ -64,7 +64,7 @@ class EmpruntController extends Controller
      */
     public function show(Emprunt $emprunt)
     {
-        //
+        return view('emprunts.show', compact('emprunt'));
     }
 
     /**
@@ -72,7 +72,9 @@ class EmpruntController extends Controller
      */
     public function edit(Emprunt $emprunt)
     {
-        //
+        $livres = Livre::all();
+        $etudiants = Etudiant::all();
+        return view('emprunts.edit',compact('emprunt','livres','etudiants'));
     }
 
     /**
@@ -80,7 +82,8 @@ class EmpruntController extends Controller
      */
     public function update(Request $request, Emprunt $emprunt)
     {
-        //
+        $emprunt->update($request->all());
+        return redirect()->route('emprunt.index')->with('Succes' , 'Les informations de l\'emprunt ont ete modifiees avec succes !');
     }
 
     /**
@@ -88,6 +91,7 @@ class EmpruntController extends Controller
      */
     public function destroy(Emprunt $emprunt)
     {
-        //
+        $emprunt->delete();
+        return view('emprunts.index');
     }
 }

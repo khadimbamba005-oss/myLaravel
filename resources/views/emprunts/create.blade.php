@@ -12,6 +12,8 @@
             </option>
             @endforeach
         </select>
+    </div>
+    <div class="form-group">
         <select name="etudiant_id" id="">
             @foreach($etudiants as $item)
             <option value="{{$item->id}}">
@@ -20,14 +22,13 @@
             @endforeach
         </select>
     </div>
-
     <div class="form-group">
         <label for="date_emprunt">Date d'emprunt</label>
         <input type="date" class="form-control" name="date_emprunt" id="" value="">
     </div>
     <div class="form-group">
         <label for="num_ref">Date de retour</label>
-        <input type="text" class="form-control" name="date_retour" id="date_retour" value="">
+        <input type="date" class="form-control" name="date_retour" id="date_retour" value="">
          @error('date_retour')
             <div class="alert alert-danger">
                 {{$message}}

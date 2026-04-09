@@ -21,14 +21,17 @@ Route::delete('livres/delete/{livre}', [LivreController::class, 'delete'])->name
 Route::get('/etudiants', [EtudiantController::class , 'index'])->name('etudiant.index');
 Route::get('etudiants/create', [EtudiantController::class, 'create'])->name('etudiant.create');
 Route::post('/etudiants', [EtudiantController::class, 'store'])->name('etudiant.store');
-Route::get('etudiants/show/{etudiant}', [EtudiantController::class, 'show'])->name('etudiant.show');
-Route::get('/etudiants/edit/{etudiant]', [EtudiantController::class, 'edit'])->name('etudiant.edit');
-Route::get('/etudiants/edit/{etudiant}', [EtudiantController::class, 'update'])->name('etudiant.update');
-Route::delete('etudiants/delete/{livre}', [EtudiantController::class, 'delete'])->name('etudiant.delete');
+Route::get('etudiants/show/{etudiant}',[EtudiantController::class, 'show'])->name('etudiant.show');
+Route::get('/etudiants/edit/{etudiant]',[EtudiantController::class, 'edit'])->name('etudiant.edit');
+Route::get('/etudiants/edit/{etudiant}',[EtudiantController::class, 'update'])->name('etudiant.update');
+Route::delete('etudiants/delete/{etudiant}',[EtudiantController::class, 'delete'])->name('etudiant.delete');
 
 // pour les emprunts
 
-Route::get('etudiants/',[EmpruntController::class , 'index'])->name('emprunt.index');
-Route::post('/emprunts', [EmpruntController::class, 'store'])->name('emprunt.store');
-Route::get('emprunts/create', [EmpruntController::class, 'create'])->name('emprunt.create');
-
+Route::get('/emprunts',[EmpruntController::class,'index'])->name('emprunt.index');
+Route::post('/emprunts',[EmpruntController::class,'store'])->name('emprunt.store');
+Route::get('emprunts/create',[EmpruntController::class,'create'])->name('emprunt.create');
+Route::get('emprunts/show/{emprunt}',[EmpruntController::class,'show'])->name('emprunt.show');
+Route::get('emprunts/edit/{emprunt}',[EmpruntController::class,'edit'])->name('emprunt.edit');
+Route::get('emprunts/{emprunt}',[EmpruntController::class,'update'])->name('emprunt.update');
+Route::delete('emprunts/{emprunt}',[EmpruntContoller::class,'destroy'])->name('emprunt.destroy');
