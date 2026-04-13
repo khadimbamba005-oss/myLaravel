@@ -20,8 +20,8 @@
         </select>
     </div>
     <div class="form-group">
-        <label for="annee_pub">Date d'emprunt</label>
-        <input type="text" class="form-control" name="annee_pub" id="date_emprunt" value="{{$emprunt->date_emprunt}}">
+        <label for="date_emprunt">Date d'emprunt</label>
+        <input type="text" class="form-control" name="date_emprunt" id="date_emprunt" value="{{$emprunt->date_emprunt}}">
     </div>
     <div class="form-group">
         <label for="quantite">Date de retour</label>
@@ -29,7 +29,7 @@
     </div>
     <div class="form-group">
         <label for="quantite">Rendu</label>
-        <input type="text" class="form-control" name="rendu" id="quantite" value="{{$emprunt->rendu}}">
+        <input type="text" class="form-control" name="rendu" id="rendu" value="{{$emprunt->rendu}}">
     </div>
     <button type="submit" class="btn btn-success">+ Modifier</button>
     <a href="{{route('emprunt.index')}}" class="btn btn-danger">

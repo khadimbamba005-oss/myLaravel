@@ -3,11 +3,11 @@
 use App\Http\Controllers\LivreController;
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\EmpruntController ;
+use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\Auth;
 use Illuminate\Support\Facades\Route;
-Route::get('/' , function()
-{
-    return view('layout.template');
-});
+Route::get('/',[WelcomeController::class,'welcome'])->name('welcome');
 
 Route::get('/livres' , [LivreController::class, 'index'])->name('livre.liste');
 Route::get('/livres/create', [LivreController::class, 'create'])->name('livre.create');
@@ -24,7 +24,7 @@ Route::post('/etudiants', [EtudiantController::class, 'store'])->name('etudiant.
 Route::get('etudiants/show/{etudiant}',[EtudiantController::class, 'show'])->name('etudiant.show');
 Route::get('/etudiants/edit/{etudiant]',[EtudiantController::class, 'edit'])->name('etudiant.edit');
 Route::get('/etudiants/edit/{etudiant}',[EtudiantController::class, 'update'])->name('etudiant.update');
-Route::delete('etudiants/delete/{etudiant}',[EtudiantController::class, 'delete'])->name('etudiant.delete');
+Route::delete('etudiants/{etudiant}',[EtudiantController::class, 'delete'])->name('etudiant.delete');
 
 // pour les emprunts
 
@@ -33,5 +33,22 @@ Route::post('/emprunts',[EmpruntController::class,'store'])->name('emprunt.store
 Route::get('emprunts/create',[EmpruntController::class,'create'])->name('emprunt.create');
 Route::get('emprunts/show/{emprunt}',[EmpruntController::class,'show'])->name('emprunt.show');
 Route::get('emprunts/edit/{emprunt}',[EmpruntController::class,'edit'])->name('emprunt.edit');
-Route::get('emprunts/{emprunt}',[EmpruntController::class,'update'])->name('emprunt.update');
-Route::delete('emprunts/{emprunt}',[EmpruntContoller::class,'destroy'])->name('emprunt.destroy');
+Route::put('emprunts/{emprunt}',[EmpruntController::class,'update'])->name('emprunt.update');
+Route::delete('emprunts/{emprunt}',[EmpruntController::class,'destroy'])->name('emprunt.destroy');
+// Route pour generer des fichiers pdf
+Route::get('emprunts/liste', [EmpruntController::class , 'genererPdf'])->name('liste');
+Route::get('emprunts/envoi_email',
+    function()  {
+
+        Mail::raw('Envoi email' , function($message)
+        {
+            $message->to('khadimbamba005@gmail.com')
+                    ->subject('Rappel de retour du livre emprunte');
+        });
+        return "Email envoye";
+
+});
+
+Route::get('/login', [LoginController::class , 'showLogin'])->name('showLogin');
+Route::get('/login' , [LoginController::class , 'login'])->name('login');
+Route::get('/login' , [LoginController::class , 'logout'])->name('logout');

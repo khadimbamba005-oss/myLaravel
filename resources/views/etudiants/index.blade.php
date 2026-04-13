@@ -23,8 +23,8 @@
             <td>{{$item->numTel}}</td>
             <td>{{$item->email}}</td>
             <td><a href="{{route('etudiant.show', $item->id)}}" class="btn btn-success btn-xs"><i class="fa fa-check"></i></a></td>
-            <td><a href="" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a></td>
-            <td><a href="" class="btn-danger btn-xs"><i class="fa fa-trash-o"></i></a></td>
+            <td><a href="{{ route('emprunt.edit', $item->id)}}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a></td>
+            <td><a href="{{ route('etudiant.delete', $item->id)}}" class="btn-danger btn-xs"><i class="fa fa-trash-o"></i></a></td>
         </tr>
     @empty
         <p>Il n'y a aucun à afficher</p>

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\Emprunt;
 use App\Models\Livre;
 use App\Models\Etudiant;
@@ -9,6 +9,15 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 class EmpruntController extends Controller
 {
+
+    public function genererPdf(Request $request)
+    {
+        $annee =$request->annee;
+        $emprunts = Emprunt::whereYear('date_emprunt' , $annee)->get();
+        $pdf = Pdf::loadView('pdf.liste', compact('emprunts' , 'annee'));
+        return $pdf->download("liste_$annee.pdf");
+
+    }
 
     public function index()
     {
@@ -92,6 +101,6 @@ class EmpruntController extends Controller
     public function destroy(Emprunt $emprunt)
     {
         $emprunt->delete();
-        return view('emprunts.index');
+        return redirect()->route('emprunt.index');
     }
 }

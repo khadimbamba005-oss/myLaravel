@@ -22,14 +22,12 @@
             <td >{{$item->date_emprunt}}</td>
             <td>{{$item->date_retour}}</td>
             <td>{{$item->rendu}}</td>
-            <td><a href="{{route('emprunt.show',$item->id)}}" class="btn btn-success btn-xs"><i class="fa fa-check"></i></a></td>
-            <td><a href="{{route('emprunt.edit',$item->id)}}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a></td>
-            <td><a href="{{ route('emprunt.destroy',$item->id) }}" class="btn-danger btn-xs"><i class="fa fa-trash-o"></i></a></td>
         </tr>
     @empty
-        <p>Il n'y a aucun à afficher</p>
+        <p>Il n'y a aucun emprunt à afficher</p>
     @endforelse
         </tbody>
     </table>
+
 
 @endsection

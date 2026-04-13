@@ -56,15 +56,15 @@ class EtudiantController extends Controller
      */
     public function edit(Etudiant $etudiant)
     {
-        //
+        return view('etudiants.edit', compact('etudiant'));
     }
-
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, Etudiant $etudiant)
     {
-        //
+        $etudiant->update($request->all());
+        return redirect()->route('etudiant.index')->with('Succes' , 'Les informations de l\'etudiant ont ete modifiees avec succes');
     }
 
     /**
@@ -72,6 +72,7 @@ class EtudiantController extends Controller
      */
     public function destroy(Etudiant $etudiant)
     {
-        //
+        $etudiant->delete();
+        return redirect()->route('etudiant.index');
     }
 }
