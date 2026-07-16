@@ -26,6 +26,7 @@ jobs:
       - name: Installer les dependances du projet (Composer)
         run: composer install --no-ansi --no-interaction --no-scripts --prefer-dist
 
+
       - name: Preparer l'environnement de travail
         run: cp .env.example .env
       - name: Generer la cle applicative unique
