@@ -27,4 +27,4 @@ jobs:
       - name: Demonstration de l'usage d'un secret cryptographique
         env:
           MY_PROTECTED_KEY: ${{ secrets.SUPER_SECRET_TOKEN }}
-        run: echo" Le secret est injecte de maniere securisee sous forme de variable d'environnement opaque"
+        run: echo "Le secret est injecte de maniere securisee sous forme de variable d'environnement opaque"
